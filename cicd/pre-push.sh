@@ -30,7 +30,7 @@ hook() {
     REPO_ROOT=$(git rev-parse --show-toplevel)
     JAYPORE_CODE_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
     JAYPORE_CODE_DIR=$(basename $JAYPORE_CODE_DIR)
-    # We will mount the current dir into /jaypore_ci/repo
+    # We will mount the current dir into /jaypore_ci/repo 
     # Then we will copy things over to /jaypore_ci/run
     # Then we will run git clean to remove anything that is not in git
     # Then we call the actual cicd code
@@ -58,7 +58,7 @@ hook() {
         --cidfile /tmp/jayporeci__cidfiles/$SHA \
         --workdir /jaypore_ci/run \
         im_jayporeci__pipe__$SHA \
-        python -m jaypore_ci.cli run "/jaypore_ci/run/$JAYPORE_CODE_DIR/cicd.py"
+        run "/jaypore_ci/run/$JAYPORE_CODE_DIR/cicd.py"
 
     echo '----------------------------------------------'
 }
